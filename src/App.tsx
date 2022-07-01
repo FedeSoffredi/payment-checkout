@@ -1,6 +1,4 @@
-import './App.css';
-
-function App() {
+const App = (): JSX.Element => {
   return (
     <div>
       Hello World!
