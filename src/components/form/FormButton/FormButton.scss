@@ -1,0 +1,22 @@
+@import '../../../styles/colors';
+
+button, a {
+    &.MuiButton-root{
+        color: white;
+        box-shadow: none;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 16px;
+        text-align: center;
+        height: 40px;
+        text-transform: initial;
+        padding: 0 42px;
+        margin-top: 20px;
+        border-radius: 24px;
+        background-color: $primary;
+
+        &:hover {
+            background-color: $primary-hover;
+        }
+    }
+}
