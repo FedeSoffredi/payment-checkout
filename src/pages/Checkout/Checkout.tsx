@@ -1,6 +1,10 @@
+import Layout from "../../components/Layout/Layout";
+
 const Checkout = (): JSX.Element => {
     return (
-        <div>Welcome to checkout!</div>
+        <Layout>
+            <div>Welcome to checkout!</div>
+        </Layout>
     );
 }
   
