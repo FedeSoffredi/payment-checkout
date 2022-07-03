@@ -1,0 +1,37 @@
+@import '../../../styles/colors';
+@import '../../../styles/layout';
+
+#header {
+    #header-container {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: $header-height;
+        padding: 0 25px;
+        display: flex;
+        align-items: center;
+        background-color: #191C3C;
+        color: white;
+        z-index: 1;
+
+        &.header-light {
+            background-color: white;
+            color: $grey-600;
+        }
+
+        #logo-header {
+            margin-top: 8px;
+            height: 20px;
+            color: inherit;
+            font-weight: bold;
+        }
+
+        #business-name-header {
+            margin-left: auto;
+            font-size: 12px;
+            font-weight: 400;
+            
+        }
+    }
+}

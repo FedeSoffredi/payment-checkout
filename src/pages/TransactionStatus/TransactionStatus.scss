@@ -1,3 +1,5 @@
+@import '../../styles/colors';
+
 #container-status-transaction {
     display: flex;
     flex-direction: column;
@@ -15,7 +17,7 @@
         font-weight: 700;
         line-height: 22px;
         text-align: center;
-        color: #333333;
+        color: $title-grey;
     }
 
     #message-status-transaction {
@@ -24,6 +26,6 @@
         font-weight: 400;
         line-height: 22px;
         text-align: center;
-        color: #4B4849;
+        color: $grey-700;
     }
 }

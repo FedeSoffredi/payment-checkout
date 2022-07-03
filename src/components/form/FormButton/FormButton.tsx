@@ -3,9 +3,10 @@ import { Button } from '@mui/material';
 import './FormButton.scss';
 
 interface FormButtonProps {
-    fullWidth?: boolean,
-    component?: any,
-    to?: string | object,
+    fullWidth?: boolean;
+    component?: any;
+    to?: string | object;
+    onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
 const FormButton = (
