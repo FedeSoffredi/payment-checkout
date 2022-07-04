@@ -1,0 +1,10 @@
+@import '../../../styles/colors';
+
+h1.form-title {
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 24px;
+    color: $title-grey;
+    margin: 0;
+    margin-bottom: 15px;
+}

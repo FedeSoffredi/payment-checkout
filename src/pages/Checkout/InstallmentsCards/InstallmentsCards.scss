@@ -1,0 +1,15 @@
+@import '../../../styles/colors';
+
+#installments-container {
+    .installment-item {
+        display: flex;
+        align-items: center;
+        padding: 14px;
+        background-color: $grey-200;
+        border-radius: 8px;
+
+        &:not(:last-child) {
+            margin-bottom: 14px;
+        }
+    }
+}

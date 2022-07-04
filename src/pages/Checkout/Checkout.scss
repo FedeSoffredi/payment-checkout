@@ -1,0 +1,24 @@
+#container-checkout {
+    margin: 0 12px;
+    margin-top: 22px;
+
+    #cards-link {
+        font-weight: 600;
+        font-size: 12px;
+        line-height: 16px;
+        color: #121212;
+        margin-top: 24px;
+        
+        a {
+            text-decoration: none;
+        }
+    }
+
+    #card-data {
+        margin-top: 0;
+    }
+
+    #installments-container {
+        margin-top: 35px;
+    }
+}

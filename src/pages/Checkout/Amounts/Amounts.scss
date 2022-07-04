@@ -1,0 +1,43 @@
+@import '../../../styles/colors';
+
+#amounts-container {
+    border: 1px solid $grey-400;
+    border-radius: 8px;
+    padding: 15px;
+
+    .amount-item {
+        display: flex;
+        color: $grey-600;
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 16px;
+
+        .item-price {
+            margin-left: auto;
+        }
+    }
+
+    #amount-total {
+        .amount-item {
+            color: $primary;
+
+            .item-name {
+                font-size: 16px;
+                line-height: 19px;
+            }
+    
+            .item-price {
+                font-size: 20px;
+                line-height: 22px;
+            }
+        }
+    }
+
+    #amounts-items {
+        margin-top: 6px;
+
+        .amount-item {
+            margin-top: 3px;
+        }
+    }
+}
