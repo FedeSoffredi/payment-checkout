@@ -1,0 +1,42 @@
+@import '../../../styles/colors';
+
+#installments-container {
+    .installment-item {
+        display: flex;
+        align-items: center;
+        padding: 14px;
+        background-color: $grey-200;
+        border-radius: 8px;
+
+        &:not(:last-child) {
+            margin-bottom: 14px;
+        }
+
+        &.card-checked {
+            background-color: #f7f0fe;
+        }
+
+        .item-info {
+            margin-left: 5px;
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 16px;
+
+            .info-installment {
+                color: $grey-800;
+            }
+
+            .info-financial-rate {
+                color: $grey-600;
+            }
+        }
+
+        .info-total {
+            margin-left: auto;
+            font-weight: 700;
+            font-size: 14px;
+            line-height: 16px;
+            color: $grey-800;
+        }
+    }
+}

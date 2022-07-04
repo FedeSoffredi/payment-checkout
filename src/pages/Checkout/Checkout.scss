@@ -1,0 +1,48 @@
+@import '../../styles/colors';
+@import '../../styles/layout';
+
+#container-checkout {
+    max-width: $max-widht-page-checkout;
+    margin: 0 auto;
+    padding: 0 12px;
+    margin-top: 22px;
+
+    #cards-link {
+        font-weight: 600;
+        font-size: 12px;
+        line-height: 16px;
+        color: #121212;
+        margin-top: 24px;
+        
+        a {
+            text-decoration: none;
+        }
+    }
+
+    #card-data {
+        margin-top: 0;
+    }
+
+    #installments-container {
+        margin-top: 35px;
+    }
+
+    #personal-info-container {
+        margin-top: 40px;
+    }
+
+    #transaction-security-text {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 14px;
+        color: #999999;
+        margin: 16px 0;
+
+        img {
+            margin-right: 10px;
+        }
+    }
+}

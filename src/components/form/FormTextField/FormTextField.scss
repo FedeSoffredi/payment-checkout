@@ -1,0 +1,31 @@
+@import '../../../styles/colors';
+
+.MuiFormControl-root {
+    .MuiInputLabel-root {
+        font-weight: 400;
+        color: $text-grey;
+
+        &.MuiInputLabel-shrink {
+            font-weight: 600;
+            color: $text-grey;
+        }
+    }
+
+    .MuiInput-root {
+        &::after {
+            border-color: $grey-400;
+        }
+
+        &.Mui-focused::after {
+            border-color: $grey-800;
+        }
+        
+    }
+
+    .MuiFormHelperText-root {
+        color: $text-grey;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 25px;
+    }
+}

@@ -1,5 +1,3 @@
-import { Link } from 'react-router-dom';
-
 import './Header.scss';
 
 interface HeaderProps {
@@ -14,12 +12,10 @@ const Header = (props: HeaderProps): JSX.Element => {
                 className={props.light ? 'header-light' : ''}
             >
                 <div id='logo-header'>
-                    <Link to='/'>
-                        <img
-                            src={ `/img/${props.light ? 'logo_dark.svg' : 'logo_light.svg'}`}
-                            alt='Geopagos logo'
-                        />
-                    </Link>
+                    <img
+                        src={ `/img/${props.light ? 'logo_dark.svg' : 'logo_light.svg'}`}
+                        alt='Geopagos logo'
+                    />
                 </div>
                 <div id='business-name-header'>
                     Nombre del comercio
