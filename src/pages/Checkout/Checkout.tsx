@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { Grid } from '@mui/material';
 import { Link } from 'react-router-dom';
 
@@ -9,48 +9,15 @@ import FormTextField from '../../components/form/FormTextField/FormTextField';
 import Amounts from './Amounts/Amounts';
 import InstallmentsCards from './InstallmentsCards/InstallmentsCards';
 import FormButton from '../../components/form/FormButton/FormButton';
+import {
+    CheckoutDataContext,
+    CheckoutDataContextType,
+} from '../../contexts/checkoutData';
 import './Checkout.scss';
 
-const ITEMS = [
-    {
-        name: 'Salmon Salad',
-        quantity: 1,
-        unitPrice: {
-            amount: 259,
-        },
-    },
-    {
-        name: 'Chicken Mex Salad',
-        quantity: 100,
-        unitPrice: {
-            amount: 23759,
-        },
-    },
-];
-
-const INSTALLMENTS = [
-    {
-        installment: 1,
-        total: 1000,
-        financialRate: 0,
-        installmentPrice: 1000
-    },
-    {
-        installment: 3,
-        total: 1122.21,
-        financialRate: 0.09,
-        installmentPrice: 374.07
-    },
-    {
-        installment: 6,
-        total: 1249.45,
-        financialRate: 0.165,
-        installmentPrice: 208.24
-    }
-];
-
 const Checkout = (): JSX.Element => {
-    const [installment, setInstallment] = useState<CheckoutInstallments>(INSTALLMENTS[0]);
+    const { checkoutData } = useContext<CheckoutDataContextType>(CheckoutDataContext);
+    const [installment, setInstallment] = useState<CheckoutInstallments>(checkoutData.attributes.installments[0]);
 
     return (
         <Layout>
@@ -58,7 +25,7 @@ const Checkout = (): JSX.Element => {
                 <FormTitle text='Completá los datos para pagar' center />
                 <Amounts 
                     total={installment.total}
-                    items={ITEMS}
+                    items={checkoutData.attributes.items}
                 />
 
                 <div id='cards-link'>
@@ -129,7 +96,7 @@ const Checkout = (): JSX.Element => {
                 <div id='installments-container'>
                     <FormTitle text='Cuotas' />
                     <InstallmentsCards
-                        installments={INSTALLMENTS}
+                        installments={checkoutData.attributes.installments}
                         value={installment.installment}
                         onChange={setInstallment}
                     />

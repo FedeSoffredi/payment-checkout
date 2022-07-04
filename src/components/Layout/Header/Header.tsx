@@ -1,3 +1,6 @@
+import { useContext } from 'react';
+
+import { CheckoutDataContext, CheckoutDataContextType } from '../../../contexts/checkoutData';
 import './Header.scss';
 
 interface HeaderProps {
@@ -5,6 +8,8 @@ interface HeaderProps {
 }
 
 const Header = (props: HeaderProps): JSX.Element => {
+    const { checkoutData } = useContext<CheckoutDataContextType>(CheckoutDataContext);
+    
     return (
         <header id='header'>
             <div 
@@ -18,7 +23,7 @@ const Header = (props: HeaderProps): JSX.Element => {
                     />
                 </div>
                 <div id='business-name-header'>
-                    Nombre del comercio
+                    {checkoutData.shop_name}
                 </div>
             </div>
         </header>
