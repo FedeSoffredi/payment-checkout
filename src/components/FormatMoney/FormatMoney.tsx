@@ -1,4 +1,7 @@
+import { useContext } from 'react';
 import NumberFormat from 'react-number-format';
+
+import { CheckoutDataContext, CheckoutDataContextType } from '../../contexts/checkoutData';
 
 interface FormatMoneyProps {
     value: string | number;
@@ -6,6 +9,8 @@ interface FormatMoneyProps {
 }
 
 const FormatMoney = (props: FormatMoneyProps): JSX.Element => {
+    const { checkoutData } = useContext<CheckoutDataContextType>(CheckoutDataContext);
+    
     return (
         <NumberFormat 
             value={parseFloat(String(props.value)).toFixed(2)} 
@@ -13,7 +18,7 @@ const FormatMoney = (props: FormatMoneyProps): JSX.Element => {
             displayType={'text'} 
             thousandSeparator={true}
             decimalSeparator='.'
-            prefix={'$ '} 
+            prefix={checkoutData.attributes.currency_symbol + ' '} 
         />
     );
 };
