@@ -30,7 +30,10 @@ const InstallmentsCards = (props: InstallmentsCardsProps): JSX.Element => {
             onChange={handlerChange}
         >
             { props.installments.map((installment, index) =>
-                <div className='installment-item' key={index}>
+                <div 
+                    className={`installment-item ${installment.installment === props.value ? 'card-checked' : ''}`} 
+                    key={index}
+                >
                     <FormRadio
                         value={installment.installment}
                     />
