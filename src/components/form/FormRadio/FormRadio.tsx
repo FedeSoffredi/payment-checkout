@@ -1,7 +1,5 @@
 import { Radio } from '@mui/material';
 
-import './FormRadio.scss';
-
 interface FormRadioProps {
     value: unknown;
 }

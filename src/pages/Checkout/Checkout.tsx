@@ -1,10 +1,14 @@
+import { useState } from 'react';
 import { Grid } from '@mui/material';
+import { Link } from 'react-router-dom';
 
+import { CheckoutInstallments } from '../../components/core/App/types';
 import Layout from '../../components/Layout/Layout';
 import FormTitle from '../../components/form/FormTitle/FormTitle';
 import FormTextField from '../../components/form/FormTextField/FormTextField';
 import Amounts from './Amounts/Amounts';
 import InstallmentsCards from './InstallmentsCards/InstallmentsCards';
+import FormButton from '../../components/form/FormButton/FormButton';
 import './Checkout.scss';
 
 const ITEMS = [
@@ -46,14 +50,17 @@ const INSTALLMENTS = [
 ];
 
 const Checkout = (): JSX.Element => {
+    const [installment, setInstallment] = useState<CheckoutInstallments>(INSTALLMENTS[0]);
+
     return (
         <Layout>
             <div id='container-checkout'>
                 <FormTitle text='Completá los datos para pagar' center />
                 <Amounts 
-                    total={876999.98}
+                    total={installment.total}
                     items={ITEMS}
                 />
+
                 <div id='cards-link'>
                     Paga con tarjeta de crédito o débito. <a href='#cards-link'>Ver tarjetas</a>
                 </div>
@@ -69,7 +76,7 @@ const Checkout = (): JSX.Element => {
                             id='card-number'
                             name='card-number'
                             label='Número de tarjeta'
-                            value='2345 6656 3578 2347'
+                            type='number'
                             endAdornment={
                                 <img src='/icons/cards/visa.svg' alt='visa' />
                             }
@@ -90,6 +97,7 @@ const Checkout = (): JSX.Element => {
                             id='card-code'
                             name='card-code'
                             label='Cód. de seguridad'
+                            type='number'
                             helperText='3 números al dorso de tarjeta'
                             endAdornment={
                                 <img src='/icons/help.svg' alt='visa' />
@@ -110,17 +118,40 @@ const Checkout = (): JSX.Element => {
                         <FormTextField 
                             id='card-dni'
                             name='card-dni'
+                            type='number'
                             label='DNI del titular'
                             helperText='Número de documento'
                             fullWidth
                         />
                     </Grid>
                 </Grid>
+
                 <div id='installments-container'>
                     <FormTitle text='Cuotas' />
-                    <InstallmentsCards 
+                    <InstallmentsCards
                         installments={INSTALLMENTS}
+                        value={installment.installment}
+                        onChange={setInstallment}
                     />
+                </div>
+
+                <div id='personal-info-container'>
+                    <FormTitle text='Datos Personales' />
+                    <FormTextField 
+                        id='personal-email'
+                        name='personal-email'
+                        label='E-mail'
+                        type='email'
+                        helperText='A este email te enviaremos el recibo de compra'
+                        fullWidth
+                    />
+                </div>
+
+                <FormButton component={Link} to='/status/denied' fullWidth>Continuar</FormButton>
+
+                <div id='transaction-security-text'>
+                    <img src='/icons/padlock.svg' alt='padlock' />
+                    Todas las transacciones son seguras y encriptadas.
                 </div>
             </div>
         </Layout>

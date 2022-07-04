@@ -1,4 +1,5 @@
 @import '../../../styles/colors';
+@import '../../../styles/layout';
 
 #amounts-container {
     border: 1px solid $grey-400;
@@ -18,6 +19,9 @@
     }
 
     #amount-total {
+        top: 16px;
+        transition: top .5s;
+
         .amount-item {
             color: $primary;
 
@@ -29,6 +33,22 @@
             .item-price {
                 font-size: 20px;
                 line-height: 22px;
+            }
+        }
+
+        &.fixedTop {
+            position: fixed;
+            top: 50px;
+            left: 0;
+            right: 0;
+            padding: 6px 35px;
+            background: white;
+            z-index: 10;
+            box-shadow: 0px -3px 12px 0px black;
+
+            .amount-item {
+                margin: 0 auto;
+                max-width: $max-widht-page-checkout - 35px;
             }
         }
     }

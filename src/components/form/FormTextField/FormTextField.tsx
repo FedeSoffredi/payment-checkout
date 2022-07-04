@@ -6,6 +6,7 @@ interface FormTextFieldProps {
     name: string;
     id?: string;
     value?: unknown;
+    type?: string;
     label?: string;
     fullWidth?: boolean;
     helperText?: string;
@@ -30,12 +31,12 @@ const FormTextField = (props: FormTextFieldProps): JSX.Element => {
             { props.label && <InputLabel htmlFor={'input-'+props.name}>{props.label}</InputLabel> }
             <Input
                 id={'input-'+props.name}
-                { ...inputProps }
                 endAdornment={
                     <InputAdornment position="end">
                         {props.endAdornment}
                     </InputAdornment>
                 }
+                { ...inputProps }
             />
             { props.helperText && <FormHelperText>{props.helperText}</FormHelperText> }
         </FormControl>

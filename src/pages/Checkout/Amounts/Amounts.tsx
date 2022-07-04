@@ -1,3 +1,5 @@
+import { useScrollTrigger } from '@mui/material';
+
 import FormatMoney from '../../../components/FormatMoney/FormatMoney';
 import { CheckoutItems } from '../../../components/core/App/types';
 import './Amounts.scss';
@@ -8,9 +10,14 @@ interface AmountsProps {
 }
 
 const Amounts = (props: AmountsProps): JSX.Element => {
+    const triggerScroll = useScrollTrigger({
+        disableHysteresis: true,
+        threshold: 100,
+    });
+
     return (
         <div id='amounts-container'>
-            <div id='amount-total'>
+            <div id='amount-total' className={triggerScroll ? 'fixedTop' : ''}>
                 <div className='amount-item'>
                     <span className='item-name'>Total</span>
                     <FormatMoney className='item-price' value={props.total} />
